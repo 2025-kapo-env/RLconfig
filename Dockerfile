@@ -7,7 +7,7 @@ RUN apt update && apt install -y \
     && add-apt-repository ppa:deadsnakes/ppa -y \
     && apt update \
     && DEBIAN_FRONTEND=noninteractive apt install -y \
-        python3.11 python3.11-venv python3.11-dev python3-pip wine64 \
+        python3.11 python3.11-venv python3.11-dev python3-pip wine \
     && ln -sf /usr/bin/python3.11 /usr/bin/python3
 
 RUN git clone https://github.com/derrod/legendary.git \
@@ -16,9 +16,6 @@ RUN git clone https://github.com/derrod/legendary.git \
     && echo 'export PATH=$PATH:~/.local/bin' >> ~/.profile \
     && . ~/.profile
 
-RUN dpkg --add-architecture i386 \
-    && apt-get update \
-    && apt-get -y install wine32 winbind
 
 ENV XAUTHORITY=/root/.Xauthority
 RUN apt update && apt install -y \

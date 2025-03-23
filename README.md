@@ -22,15 +22,15 @@ docker run -it --gpus all \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v ~/Games:/Games \
   -v /wine:/wine \
+  -v ~/.Xauthority:/root/.Xauthority \
   -v ./rlbot-python-example:/root/rlbot-python-example \
   --network host rlenv
 ```
 ## 4. Authorize Legendary & Run RLBot
 ```bash
+winecfg # turn on graphics emulator
 legendary auth
 legendary import Sugar /Games/rocketleague
-legendary launch rocketleague
-# Xvfb :99 -screen 0 1024x768x24 &
-# export DISPLAY=:99
+# legendary launch rocketleague
 python3 run.py
 ```
