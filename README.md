@@ -28,6 +28,9 @@ docker run -it --gpus all \
 ## 4. Authorize Legendary & Run RLBot
 ```bash
 legendary auth
-legendary import Sugar ../Games/rocketleague
+legendary import Sugar /Games/rocketleague
+legendary launch rocketleague
+# Xvfb :99 -screen 0 1024x768x24 &
+# export DISPLAY=:99
 python3 run.py
 ```

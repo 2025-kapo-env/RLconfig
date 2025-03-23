@@ -20,14 +20,14 @@ RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get -y install wine32 winbind
 
-RUN cd rlbot-python-example && pip install -r requirements.txt
-RUN curl -L -o RLBotServer https://github.com/RLBot/core/releases/download/v0.4.4/RLBotServer
-
 ENV XAUTHORITY=/root/.Xauthority
 RUN apt update && apt install -y \
     x11-apps \
     xauth \
     x11-xserver-utils \
     && rm -rf /var/lib/apt/lists/*
-    
-CMD ["bash"]
+
+CMD bash -c "\
+    cd rlbot-python-example && pip install -r requirements.txt && \
+    curl -L -o RLBotServer https://github.com/RLBot/core/releases/download/v0.4.4/RLBotServer && \
+    exec bash"
