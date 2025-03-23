@@ -22,7 +22,7 @@ docker run -it --gpus all \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   -v ~/Games:/Games \
   -v /wine:/wine \
-  -v /home/{username}/RLConfigure/rlbot-python-example:/root/rlbot-python-example \
+  -v ./rlbot-python-example:/root/rlbot-python-example \
   --network host rlenv
 ```
 ## 4. Authorize Legendary & Run RLBot
