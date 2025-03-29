@@ -30,6 +30,7 @@ docker run -it --gpus all \
 ```bash
 winecfg # turn on graphics emulator
 legendary auth
+legendary update RocketLeague
 legendary import Sugar /Games/rocketleague
 # legendary launch rocketleague
 python3 run.py

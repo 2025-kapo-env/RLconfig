@@ -24,6 +24,13 @@ RUN apt update && apt install -y \
     x11-xserver-utils \
     && rm -rf /var/lib/apt/lists/*
 
+# RUN apt-get update && apt-get install -y wget
+# RUN wget -q -O- https://packagecloud.io/dcommander/virtualgl/gpgkey > gpgkey
+# RUN gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/VirtualGL.gpg gpgkey
+# RUN echo "deb [signed-by=/etc/apt/trusted.gpg.d/VirtualGL.gpg] https://packagecloud.io/dcommander/virtualgl/any/ any main" | tee /etc/apt/sources.list.d/virtualgl.list
+# RUN apt-get update
+# RUN apt-get install -y virtualgl
+
 CMD bash -c "\
     cd rlbot-python-example && pip install -r requirements.txt && \
     curl -L -o RLBotServer https://github.com/RLBot/core/releases/download/v0.4.4/RLBotServer && \

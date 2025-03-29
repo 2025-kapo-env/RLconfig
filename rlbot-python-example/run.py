@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     # Start RLBotServer and the match
     match_manager = MatchManager(root_dir)
-    match_manager.ensure_server_started()
+    #match_manager.ensure_server_started()
     sleep(2)
     match_manager.start_match(root_dir / MATCH_CONFIG_FILE)
 
