@@ -10,8 +10,8 @@ legendary install "RocketLeague"
 ```
 
 ## 2. Download RLBot server
-Download RLBotServer from https://github.com/RLBot/core/releases/tag/v0.4.10.
-Place RLBotServer in the `./rlbot-python-example` directory.
+- Download RLBotServer from https://github.com/RLBot/core/releases/tag/v0.4.10.
+- Place RLBotServer in the `./rlbot-python-example` directory.
 
 ## 3. Build Docker Image
 ```bash
