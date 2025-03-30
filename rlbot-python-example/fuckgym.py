@@ -53,13 +53,12 @@ class Gym:
                 rlbot_server_ip=rlbot_server_ip,
                 rlbot_server_port=rlbot_server_port,
             )
-            self.bot1._try_initialize()
+            self.bot1._try_initialize() # IDK if this is needed
             self.bot2._try_initialize()
         except Exception as e:
             self._logger.error("Unexpected error: %s", e)
-    def step(self, action):
-        # This method should implement the logic to step the simulation forward
-        # and return the new state, reward, done, and info.
+    def step(self, action : tuple[dict[int, ControllerState]]):
+        # and return the new state, reward, done, and info.(Not implemented here)
         controller1 = action[0]
         controller2 = action[1]
         
@@ -86,13 +85,13 @@ class Gym:
         self.bot1._game_interface.handle_incoming_messages(
                 blocking=True
             )
+        self.bot2._game_interface.handle_incoming_messages(
+                blocking=True
+            )
         return (self.bot1._latest_packet, self.bot1._latest_prediction), (self.bot2._latest_packet, self.bot2._latest_prediction)
     def reset(self):
         
-        # This method should reset the simulation and return the initial state.
         self.match_manager.shut_down()
-        #self.match_manager.disconnect()
-        #self.match_manager.shut_down()
         self.match_manager = MatchManager()
         self.match_manager.start_match(self.root_dir / MATCH_CONFIG_PATH)
         
@@ -106,13 +105,11 @@ class Gym:
                 )
             if(self.bot1._latest_packet is None or self.bot2._latest_packet is None):
                 continue
-            #print(f"len : { len(self.bot1._latest_packet.players) }")
             if(len(self.bot1._latest_packet.players) == 6 and len(self.bot2._latest_packet.players) == 6):
                 break
         
         return (self.bot1._latest_packet, self.bot1._latest_prediction), (self.bot2._latest_packet, self.bot2._latest_prediction), {"field_info" : self.bot1.field_info, "indices1" : self.bot1.indices, "indices2" : self.bot1.indices}
     def close(self):
-        # This method should close the simulation and clean up any resources.
         self.match_manager.stop_match()
         self.match_manager.disconnect()
     
@@ -128,14 +125,11 @@ if __name__ == "__main__":
     ophive.initialize(field_info = info["field_info"], indices = info["indices2"])
     i = 0
     while(True):
-
-        #print(gay)
         try:
-            #print(gay)
             action1 = myhive.get_outputs(*ob1)
             action2 = ophive.get_outputs(*ob2)
             
-            actions = [action1, action2]
+            actions = (action1, action2)
             #print(actions)
             ob1,ob2 = gym.step(actions)
         except Exception as e:
