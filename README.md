@@ -39,3 +39,8 @@ legendary import Sugar /Games/rocketleague
 # legendary launch rocketleague
 python3 run.py
 ```
+
+
+---
+Change this code in Hivemind
+![image](https://github.com/user-attachments/assets/3a54585f-d035-489a-a9aa-f7b852c72122)
