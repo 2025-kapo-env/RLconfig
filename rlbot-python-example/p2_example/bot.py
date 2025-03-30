@@ -128,4 +128,6 @@ if __name__ == "__main__":
     # Connect to RLBot and run
     # Having the agent id here allows for easier development,
     # as otherwise the RLBOT_AGENT_ID environment variable must be set.
+    print("FU")
     MyHive("poscat/boteasymo").run()
+    print("SHIT")

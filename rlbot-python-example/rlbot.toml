@@ -2,8 +2,8 @@
 # use this along with launcher = "custom"
 # launcher_arg = "legendary"
 # "Steam", "Epic", "Custom", "NoLaunch"
-launcher = "Custom"
-launcher_arg = "legendary"
+launcher = "Epic"
+#launcher_arg = "legendary"
 # Should RLBot start the bot processes automatically, or will a separate script start them
 auto_start_bots = true
 
