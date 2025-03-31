@@ -1,0 +1,19 @@
+[settings]
+name = "Vlab"
+loadout_file = "loadout.toml"
+root_dir = ""
+run_command = ""
+run_command_linux = ""
+agent_id = "gym1"
+hivemind = true
+
+[details]
+description = """
+This is a multi-line description
+of the hivemind example bot
+"""
+fun_fact = "Made possible by RLBot v5"
+source_link = ""
+developer = ""
+language = "Python"
+tags = []
